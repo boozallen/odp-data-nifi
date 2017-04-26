@@ -1,9 +1,9 @@
-#Nifi Ingestion Templates
+# NiFi Ingestion Templates
 
 This folder contains some example Nifi Dataflow templates to process data.  To use these templates, on the Component Toolbar, drag the template icon onto the canvas and select the template you wish to use.  For more detailed information on Nifi templates see (http://nifi.apache.org/docs/nifi-docs/html/user-guide.html#templates).
 
 
-##Hackathon_Pull_Data_Webservice_GeoLocate_Elastic
+## Hackathon_Pull_Data_Webservice_GeoLocate_Elastic
 
 This template will pull data from an API endpoint and page through the data.  It will attempt to enhance the data by adding a geolocation based on zipcode and then ingest the data into ElasticSearch.
 

@@ -1,5 +1,5 @@
 FROM centos:latest
-MAINTAINER Booz Allen Hamilton <cognition@bah.com>
+MAINTAINER Booz Allen Hamilton <opendataplatform@bah.com>
 
 # install yum repos
 RUN yum update -y &&\
@@ -36,6 +36,9 @@ COPY schemas /opt/data/schemas
 COPY templates ${NIFI_HOME}/conf/templates/
 RUN chown nifi:nifi -R /opt/data \
 	&& chown -R nifi:nifi ${NIFI_HOME}/conf/templates
+
+# Increase the memory from 512MB to 2GB
+RUN sed -i -- 's/Xmx512m/Xmx2g/' /opt/nifi/conf/bootstrap.conf
 
 # These are the volumes (in order) for the following:
 # 1) user access and flow controller history
