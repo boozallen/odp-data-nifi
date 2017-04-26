@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.0">
+  <description>This is an example template that will pull data from the USA Spending API webservice, page through the results, process the results to add geolocation information based on zipcodes and ingest the data into ElasticSearch</description>
+  <groupId>10e1eaeb-015b-1000-1f8e-8959efc87e9b</groupId>
+  <name>Hackathon_Pull_Data_Webservice_GeoLocate_Elastic</name>
+  <snippet>
+    <processors>
+      <id>90276475-015a-1000-0000-000000000000</id>
+      <parentGroupId>10e1eaeb-015b-1000-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>0.0</y>
+      </position>
+      <config>
+        <bulletinLevel>INFO</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>elasticsearch-http-url</key>
+            <value>
+              <name>elasticsearch-http-url</name>
+            </value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>elasticsearch-http-connect-timeout</key>
+            <value>
+              <name>elasticsearch-http-connect-timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>elasticsearch-http-response-timeout</key>
+            <value>
+              <name>elasticsearch-http-response-timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>put-es-id-attr</key>
+            <value>
+              <name>put-es-id-attr</name>
+            </value>
+          </entry>
+          <entry>
+            <key>put-es-index</key>
+            <value>
+              <name>put-es-index</name>
+            </value>
+          </entry>
+          <entry>
+            <key>put-es-type</key>
+            <value>
+              <name>put-es-type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Character Set</key>
+            <value>
+              <name>Character Set</name>
+            </value>
+          </entry>
+          <entry>
+            <key>put-es-batch-size</key>
+            <value>
+              <name>put-es-batch-size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>put-es-index-op</key>
+            <value>
+              <name>put-es-index-op</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>elasticsearch-http-url</key>
+            <value>http://odp-elasticsearch:9200</value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+          </entry>
+          <entry>
+            <key>Username</key>
+          </entry>
+          <entry>
+            <key>Password</key>
+          </entry>
+          <entry>
+            <key>elasticsearch-http-connect-timeout</key>
+            <value>5 secs</value>
+          </entry>
+          <entry>
+            <key>elasticsearch-http-response-timeout</key>
+            <value>15 secs</value>
+          </entry>
+          <entry>
+            <key>put-es-id-attr</key>
+          </entry>
+          <entry>
+            <key>put-es-index</key>
+            <value>odp_hackathon</value>
+          </entry>
+          <entry>
+            <key>put-es-type</key>
+            <value>${schemaType}</value>
+          </entry>
+          <entry>
+            <key>Character Set</key>
+            <value>UTF-8</value>
+          </entry>
+          <entry>
+            <key>put-es-batch-size</key>
+            <value>100</value>
+          </entry>
+          <entry>
+            <key>put-es-index-op</key>
+            <value>index</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutElasticsearchHttp</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>retry</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.elasticsearch.PutElasticsearchHttp</type>
+    </processors>
+  </snippet>
+  <timestamp>04/06/2017 14:01:02 UTC</timestamp>
+</template>

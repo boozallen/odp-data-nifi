@@ -1,0 +1,35 @@
+version: '3'
+services:
+  nifi:
+    container_name: odp-nifi
+    build: .
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    #Make sure input directories have open permissions so that nifi can access files
+    volumes:
+      - /tmp/in:/opt/data/in
+      - /tmp/out:/opt/data/out
+      - ./scripts:/opt/data/scripts
+    image: "odp-data-nifi"
+  twofishes:
+    container_name: odp-twofishes
+    image: "fsqio/twofishes"
+  corenlp:
+    container_name: odp-corenlp
+    image: "odp-data-corenlp"
+  elasticsearch:
+    container_name: odp-elasticsearch
+    image: "elasticsearch"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    container_name: odp-kibana
+    image: "kibana"
+    ports:
+      - "5601:5601"
+    depends_on: 
+      - elasticsearch
+    links:
+      - elasticsearch

@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "config": {
+    "docker": {
+      "imageName": "davidcunningham/cognition-data-nifi"
+    }
+  },
+  "scripts": {
+    "docker-deploy": "docker-deploy"
+  }
+}
