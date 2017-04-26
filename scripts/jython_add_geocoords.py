@@ -20,5 +20,5 @@ class ModJSON(StreamCallback):
 flowFile = session.get()
 if (flowFile != None):
     flowFile = session.write(flowFile, ModJSON(flowFile.getAttribute('geojson')))
-session.transfer(flowFile, REL_SUCCESS)
-session.commit()
+    session.transfer(flowFile, REL_SUCCESS)
+    session.commit()
