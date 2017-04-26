@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "config": {
     "docker": {
-      "imageName": "davidcunningham/cognition-data-nifi"
+      "imageName": "boozallen/odp-data-nifi"
     }
   },
   "scripts": {
