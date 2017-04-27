@@ -6,7 +6,7 @@ To get started either pull the online container or build a container locally.
 
 To pull the docker container:
 ```
-docker pull boozallen/odp-data-nifi
+docker pull boozallen/odp-data-nifi:0.1.0
 ```
 
 To create the docker container:
