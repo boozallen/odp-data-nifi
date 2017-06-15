@@ -1,7 +1,6 @@
 ## Open Data Platform NiFi Component
 This component provides a Docker-based NiFi container and processing templates as part of the Open Data Platform.
 
-
 ## Getting Started
 To get started either pull the online container or build a container locally.
 
